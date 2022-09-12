@@ -1,0 +1,6 @@
+{
+	"name": "open_cv",
+	"workspaceFolder": "/workspace",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "open_cv"
+}

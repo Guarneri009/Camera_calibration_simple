@@ -1,0 +1,22 @@
+version: "3"
+services:
+  open_cv:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      # windowsの場合
+      #- DISPLAY=<local ip>
+      # linxの場合
+      - DISPLAY=${DISPLAY}
+      - XDG_RUNTIME_DIR=/tmp/runtime-root
+    volumes:
+      # windowsの場合
+      #- /mnt/e/<repsiory-path>:/workspace:cached
+      # linxの場合
+      - ..:/workspace:cached
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    devices:
+       - /dev/video0:/dev/video0:mwr
+    #network_mode: host
